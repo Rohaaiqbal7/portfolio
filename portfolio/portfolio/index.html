@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+
+   
+  <title>Maryam Portfolio</title>
+ 
+
+  <style>
+     * {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: black;
+      color: white;
+    }
+
+    #header {
+      width: 100%;
+      height: 100vh;
+      background-image: url("images/home-removebg-preview (1).png");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .container {
+      padding: 10px 10%;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-left: -70px;
+    }
+
+    .logo {
+      width: 140px;
+    }
+
+    nav ul {
+      list-style: none;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin: 10px 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      position: relative;
+    }
+
+    nav ul li a::after {
+      content: '';
+      width: 0%;
+      height: 3px;
+      background: #ff004f;
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      transition: 0.5s ease;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    .header-text {
+      margin-top: 20%;
+      font-size: 30px;
+    }
+
+    .header-text h1 {
+      font-size: 60px;
+      margin-top: 20px;
+    }
+
+    .header-text h1 span {
+      color: #ff004f;
+    }
+
+    .header-text p {
+      font-size: 20px;
+    }
+
+    #about {
+      padding: 80px 0;
+      color: #ababab;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .about-col-1 {
+      flex-basis: 35%;
+    }
+
+    .about-col-1 img {
+      width: 100%;
+      border-radius: 15px;
+    }
+
+    .about-col-2 {
+      flex-basis: 60%;
+    }
+
+    .sub-title {
+      font-size: 60px;
+      font-weight: 600;
+      color: white;
+    }
+
+    .tab-wrapper {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+    }
+
+    .tab-group {
+      width: 32%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tab-titles {
+      margin-bottom: 10px;
+    }
+
+    .tab-links {
+      font-size: 18px;
+      font-weight: 500;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .tab-links::after {
+      content: '';
+      width: 0;
+      height: 3px;
+      background: #ff004f;
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      transition: 0.5s;
+    }
+
+    .tab-links.active-link::after {
+      width: 20%;
+    }
+
+    .tab-contents {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .tab-contents.active-tab {
+      display: block;
+    }
+
+    .tab-contents ul li {
+      list-style: none;
+      margin: 10px 0;
+      font-size: 14px;
+    }
+
+    .tab-contents ul li span {
+      color: #b54769;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== Services Section ===== */
+    #services {
+      padding: px 0 60px;
+    }
+
+    #services .sub-title {
+      margin-bottom: 30px;
+      margin-top: -40px;
+    }
+
+    .services-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 40px;
+      margin-top: 40px;
+    }
+
+    .services-list div {
+      background: #262626;
+      padding: 40px;
+      font-size: 13px;
+      font-weight: 300;
+      border-radius: 10px;
+      text-align: center;
+      transition: background 0.5s, transform 0.5s;
+    }
+
+    .services-list div:hover {
+      background: #ff004f;
+      transform: translateY(-10px);
+    }
+
+    .services-list div i {
+      font-size: 50px;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .services-list div h2 {
+      font-size: 25px;
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+
+    .services-list div p {
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    #portfolio {
+      padding: 60px 0 40px;
+    }
+
+    #portfolio .sub-title {
+      margin-bottom: 30px;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 40px;
+      margin-top: -40px;
+    }
+.work-box {
+  position: relative;
+  overflow: hidden;
+  height: 330px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.work-box img {
+  max-width: 300%;
+  max-height: 110%;
+  aspect-ratio: 4/3;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 10px;
+}
+
+/* Overlay */
+.work-box::before {
+  content: '';
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #ff004f, rgba(0, 0, 0, 0.7));
+  transition: all 0.5s ease;
+  z-index: 1;
+}
+
+/* Text Overlay */
+.work-box::after {
+  content: attr(data-desc);
+  position: absolute;
+  bottom: -40%;
+  left: 0;
+  width: 100%;
+  padding: 10px 15px;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  z-index: 2;
+  transition: all 0.5s ease;
+  white-space: pre-wrap;
+  box-sizing: border-box; 
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+
+
+.work-box:hover::before {
+  bottom: -10%;
+}
+.work-box:hover::after {
+  bottom: 30%;
+}
+  body {
+      margin: 0;
+      font-family:  sans-serif;
+      background-color: #000;
+      color: white;
+    }
+
+    .contact-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 60px 10%;
+    }
+
+    .contact-left, .contact-right {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .contact-left {
+      padding-right: 40px;
+    }
+
+    .contact-left h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .contact-left p {
+      margin: 10px 0;
+      color: #ccc;
+    }
+
+    .contact-left p i {
+      margin-right: 10px;
+      color: #ff004f;
+    }
+
+    .social-icons {
+      margin: 20px 0;
+    }
+
+    .social-icons a {
+      text-decoration: none;
+      color: white;
+      margin-right: 15px;
+      font-size: 22px;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #ff004f;
+      transform: scale(1.2);
+    }
+
+    .btn {
+      display: inline-block;
+      background: #ff004f;
+      color: white;
+      padding: 10px 25px;
+      border: none;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 10px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .btn:hover {
+      background: #e60044;
+      transform: scale(1.05);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input, textarea {
+      padding: 12px;
+      margin-bottom: 15px;
+      border: none;
+      background-color: #1c1c1c;
+      color: white;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    input:focus, textarea:focus {
+      outline: 2px solid #ff004f;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .submit-btn {
+      background: #ff004f;
+      color: white;
+      border: none;
+      padding: 12px 0;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background 0.3s, transform 0.3s;
+       width: 160px; 
+    }
+
+    .submit-btn:hover {
+      background: #e60044;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .contact-section {
+        flex-direction: column;
+        gap: 30px;
+        padding: 40px 5%;
+      }
+
+      .contact-left {
+        padding-right: 0;
+      }
+    }
+    .container h4{
+      color: #ff004f;
+      font-size: 45px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .container h4 span{
+      color: #ccc;
+    }
+    
+    @media (max-width: 768px) {
+      nav {
+        justify-content: flex-start;
+        padding-left: 20px;
+      }
+
+      nav ul {
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 10px;
+      }
+
+      #header {
+        height: 67vh;
+        background-size: contain;
+        background-position: center;
+       
+      }
+
+      .header-text {
+        margin-top: 140px;
+        text-align: center;
+      }
+
+      .header-text h1 {
+        font-size: 40px;
+      }
+
+      .header-text p {
+        font-size: 16px;
+      }
+      
+    }
+ 
+@media (max-width: 768px) {
+  #about {
+  
+    text-align: center;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .about-col-1,
+  .about-col-2 {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+
+  .about-col-1 img {
+    width: 80%;
+    display: block;
+    margin-top: -100px;
+  }
+
+  .tab-wrapper {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+  }
+
+  .tab-group {
+    width: 32%;
+  }
+
+  .tab-titles {
+    margin-bottom: 10px;
+  }
+
+  .tab-links {
+    font-size: 16px;
+    display: inline-block;
+  }
+
+  .tab-contents ul li {
+    font-size: 14px;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <div id="header">
+    <div class="container">
+      <nav>
+       
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-text">
+        <p>Web Designer & Front-End Developer</p>
+        <h1>Hi, I'm <span>Maryam</span><br>From Karachi, Pakistan</h1>
+      </div>
+    </div>
+  </div>
+
+  <!-- About -->
+  <div id="about">
+    <div class="container">
+      <div class="row">
+        <div class="about-col-1">
+          <img src="images/about-removebg-preview.png" />
+        </div>
+        <div class="about-col-2">
+          <h1 class="sub-title">About Me</h1><br><br>
+          <p>
+            I’m Maryam — Karachi‑based web designer & front‑end developer studying at Aptech.
+            I craft responsive sites with HTML, CSS & JavaScript;
+            my latest project is a toy‑store site with search and cart features.
+            Clean code and constant learning drive me.
+          </p>
+
+          <div class="tab-wrapper">
+            <div class="tab-group">
+              <div class="tab-titles">
+                <p class="tab-links active-link" onclick="opentab(event,'skills')">Skills</p>
+              </div>
+              <div class="tab-contents active-tab" id="skills">
+                <ul>
+                  <li><span>HTML, CSS</span><br>JavaScript, jQuery</li>
+                  <li><span>Responsive Web Design</span><br>Git & GitHub</li>
+                  <li><span>SEO</span><br>Bootstrap</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="tab-group">
+              <div class="tab-titles">
+                <p class="tab-links" onclick="opentab(event,'softskills')">Soft Skills</p>
+              </div>
+              <div class="tab-contents" id="softskills">
+                <ul>
+                  <li><span>Strong communication</span><br>Teamwork and collaboration</li>
+                  <li><span>Creative design thinking</span><br>Time management</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="tab-group">
+              <div class="tab-titles">
+                <p class="tab-links" onclick="opentab(event,'education')">Education</p>
+              </div>
+              <div class="tab-contents" id="education">
+                <ul>
+                  <li><span>Aptech Computer Education</span><br>Higher Diploma in Software Engineering – (Ongoing)</li>
+                  <li><span>Intermediate (Pre-Medical)</span><br>E City Higher Public School, Karachi – (Ongoing)</li>
+                
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="services">
+    <div class="container">
+      <h1 class="sub-title">My Services</h1>
+      <div class="services-list">
+        <div>
+          <i class="fas fa-code"></i>
+          <h2>Web Design</h2>
+          <p>I design beautiful and clean websites with a focus on user experience and layout structure.</p>
+        </div>
+        <div>
+          <i class="fas fa-mobile-alt"></i>
+          <h2>Responsive Websites</h2>
+          <p>I build mobile-friendly websites that work across all screen sizes.</p>
+        </div>
+        <div>
+          <i class="fas fa-laptop-code"></i>
+          <h2>Front-End Development</h2>
+          <p>I develop user interfaces using HTML, CSS, JavaScript, and jQuery.</p>
+        </div>
+        <div>
+          <i class="fas fa-th-large"></i>
+          <h2>Bootstrap Layouts</h2>
+          <p>I create grid-based designs and components using Bootstrap.</p>
+        </div>
+        <div>
+          <i class="fas fa-code-branch"></i>
+          <h2>Git & GitHub Support</h2>
+          <p>I can version your code and manage projects via GitHub.</p>
+        </div>
+        <div>
+          <i class="fas fa-search"></i>
+          <h2>SEO Basics</h2>
+          <p>I optimize your site for better visibility on search engines.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="portfolio">
+    <div class="container">
+      <h1 class="sub-title">My Work</h1>
+      <div class="portfolio-grid">
+        <div class="work-box" data-desc="Homepage layout designed using HTML,  CSS, and Bootstrap with a responsive navbar. Includes JavaScript for interactivity and smooth user experience.
+">
+          <img src="images/now.png" alt="Work 1">
+        </div>
+        <div class="work-box" data-desc="Homepage Bootstrap cards with hover effect. Clicking a card opens a detailed page with more product listings for purchase.
+">
+          <img src="images/ss2.png" alt="Work 2">
+        </div>
+        <div class="work-box" data-desc="Custom-designed footer with hoverable social icons and linked pages. Includes Terms, Privacy, About, and Contact sections. Clicking icons or links opens their respective pages.">
+          <img src="images/footerr.jpeg" alt="Work 3">
+        </div>
+        <div class="work-box" data-desc="Bootstrap-based product cards with circular profile images and names. Clicking on circles opens a new page; card click opens a modal window with product preview. Designed using Bootstrap and JavaScript.">
+          <img src="images/ss23.png" alt="Work 4">
+        </div>
+        <div class="work-box" data-desc="Fully‑responsive Contact Us page built with Bootstrap, custom CSS, and JavaScript—includes a validated contact form, interactive map embed">
+          <img src="images/ss13.png" alt="Work 5">
+        </div>
+        <div class="work-box" data-desc="This responsive modal appears on card click. It includes an Add to Cart alert function and a billing form on Buy Now, all built using JavaScript.">
+          <img src="images/image.jpeg" alt="Work 6">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+ <div class="contact-section">
+    
+    <div class="contact-left">
+      <h2>Contact Me</h2>
+      <p><i class="fas fa-paper-plane"></i> maryam.sheikh9091@gmail.com</p>
+     
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <a href="portfolio cv.pdf" download class="btn">Download CV</a>
+    </div>
+
+    <div class="contact-right">
+      <form action="https://formsubmit.co/maryam.sheikh9091@gmail.com" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_autoresponse" value="Thanks! Your message has been received.">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    </div>
+  </div>
+ <footer style="text-align: center; padding: 15px 0; background-color: #1c1c1c; color: #faf8f8; font-size: 14px;">
+  Designed by Maryam <i class="fas fa-heart" style="color: #ff004f;"></i> With passion & pixels.
+</footer>
+
+  <script>
+    function opentab(evt, tabname) {
+      const tablinks = document.getElementsByClassName("tab-links");
+      const tabcontents = document.getElementsByClassName("tab-contents");
+
+      for (let i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active-link");
+      }
+      for (let i = 0; i < tabcontents.length; i++) {
+        tabcontents[i].classList.remove("active-tab");
+      }
+
+      evt.currentTarget.classList.add("active-link");
+      document.getElementById(tabname).classList.add("active-tab");
+    }
+  </script>
+
+</body>
+</html>
