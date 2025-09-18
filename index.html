@@ -11,7 +11,7 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
     body {
-      background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+      background: linear-gradient(120deg, #000000, #1a1a1a, #0d0d0d);
       color: #f5f5f5;
       line-height: 1.6;
     }
@@ -19,9 +19,10 @@
     /* NAVBAR */
     nav {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 20px 10%; position: fixed; width: 100%; top: 0;
-      background: rgba(15, 15, 15, 0.9); backdrop-filter: blur(10px); z-index: 1000;
+      padding: 20px 8%; position: fixed; width: 100%; top: 0;
+      background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); z-index: 1000;
     }
+    nav h2 { color: #ff5f9e; font-size: 24px; margin-right: 40px; }
     nav ul { list-style: none; display: flex; gap: 25px; }
     nav ul li a {
       color: #eee; text-decoration: none; font-size: 16px; font-weight: 500;
@@ -37,15 +38,22 @@
     /* HEADER */
     #header {
       height: 100vh; display: flex; align-items: center; justify-content: center;
-      text-align: center; background: url("images/home-removebg-preview (1).png") center/contain no-repeat;
+      text-align: center; position: relative; overflow: hidden;
     }
-    .header-text { margin-top: 80px; }
+    #header img {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover; opacity: 0.25; z-index: -1;
+    }
+    .header-text {
+      max-width: 700px; padding: 20px;
+    }
     .header-text h1 { font-size: 55px; font-weight: 700; }
     .header-text h1 span { color: #ff5f9e; }
     .header-text p { font-size: 20px; color: #ccc; }
 
     /* ABOUT */
-    #about { padding: 120px 10%; display: flex; gap: 50px; align-items: center; }
+    #about { padding: 120px 10%; display: flex; gap: 50px; align-items: center; flex-wrap: wrap; }
     .about-col-1 img {
       border-radius: 20px; max-width: 100%;
       box-shadow: 0 8px 25px rgba(0,0,0,0.5);
@@ -62,10 +70,10 @@
       gap: 30px; margin-top: 40px;
     }
     .services-list div {
-      background: rgba(255,255,255,0.08); padding: 30px;
+      background: rgba(255,255,255,0.05); padding: 30px;
       border-radius: 12px; transition: 0.3s;
     }
-    .services-list div:hover { background: rgba(255,255,255,0.15); transform: translateY(-8px); }
+    .services-list div:hover { background: rgba(255,255,255,0.12); transform: translateY(-8px); }
     .services-list div i { font-size: 40px; color: #ff5f9e; margin-bottom: 15px; }
     .services-list div h2 { font-size: 20px; margin-bottom: 10px; color: #fff; }
     .services-list div p { font-size: 15px; color: #ccc; }
@@ -77,17 +85,17 @@
       gap: 30px; margin-top: 40px;
     }
     .work-box {
-      background: rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden;
+      background: rgba(255,255,255,0.05); border-radius: 12px; overflow: hidden;
       transition: transform 0.3s; text-align: center; padding: 20px;
     }
-    .work-box:hover { transform: translateY(-6px); background: rgba(255,255,255,0.15); }
+    .work-box:hover { transform: translateY(-6px); background: rgba(255,255,255,0.12); }
     .work-box img { width: 100%; border-radius: 10px; margin-bottom: 12px; }
     .work-box a {
       display: inline-block; padding: 8px 16px;
-      background: linear-gradient(90deg, #ff9966, #ff5e62);
+      background: linear-gradient(90deg, #ff5f9e, #ff2a68);
       color: #fff; border-radius: 8px; text-decoration: none;
     }
-    .work-box a:hover { background: linear-gradient(90deg, #36d1dc, #5b86e5); }
+    .work-box a:hover { background: linear-gradient(90deg, #5b86e5, #36d1dc); }
 
     /* VIDEO SECTION */
     #videos { padding: 100px 10%; text-align: center; }
@@ -95,106 +103,66 @@
     video { width: 100%; max-width: 500px; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.4); }
 
    /* ===== CONTACT ===== */
-.contact-section {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 50px;
-  padding: 100px 10%;
-  background: rgba(25, 25, 25, 0.9);
-  border-radius: 20px;
-  box-shadow: 0 6px 25px rgba(0,0,0,0.5);
-}
+    .contact-section {
+      display: flex; flex-wrap: wrap;
+      justify-content: space-between; gap: 50px;
+      padding: 100px 10%; background: rgba(15, 15, 15, 0.95);
+      border-radius: 20px; box-shadow: 0 6px 25px rgba(0,0,0,0.5);
+    }
+    .contact-left { flex: 1; min-width: 250px; }
+    .contact-left h2 {
+      font-size: 36px; margin-bottom: 15px; color: #ff5f9e;
+    }
+    .contact-left p { margin: 10px 0; color: #ccc; font-size: 16px; }
+    .contact-left p i { margin-right: 10px; color: #ff5f9e; }
 
-.contact-left {
-  flex: 1;
-  min-width: 250px;
-}
+    .social-icons { margin: 20px 0; }
+    .social-icons a {
+      text-decoration: none; color: white; margin-right: 15px;
+      font-size: 20px; transition: 0.3s;
+    }
+    .social-icons a:hover { color: #ff5f9e; }
 
-.contact-left h2 {
-  font-size: 36px;
-  margin-bottom: 15px;
-  color: #ff5f9e;
-  font-family: 'Playfair Display', serif;
-}
+    .btn {
+      display: inline-block; padding: 12px 20px;
+      background: #ff5f9e; color: white;
+      border-radius: 8px; text-decoration: none; margin-top: 10px;
+      transition: 0.3s;
+    }
+    .btn:hover { background: #e24c89; transform: scale(1.05); }
 
-.contact-left p {
-  margin: 10px 0;
-  color: #ccc;
-  font-size: 16px;
-}
+    .contact-right { flex: 1; min-width: 300px; }
+    form { display: flex; flex-direction: column; gap: 15px; }
+    input, textarea {
+      padding: 14px; border: none; background-color: #1c1c1c;
+      color: white; border-radius: 8px; font-size: 15px;
+    }
+    input:focus, textarea:focus { outline: 2px solid #ff5f9e; }
+    .submit-btn {
+      background: #ff5f9e; color: white; border: none;
+      padding: 14px 0; cursor: pointer; border-radius: 8px;
+      font-size: 16px; transition: 0.3s; width: 180px;
+    }
+    .submit-btn:hover { background: #e24c89; transform: scale(1.05); }
 
-.contact-left p i {
-  margin-right: 10px;
-  color: #ff5f9e;
-}
+    /* FOOTER */
+    footer { text-align: center; padding: 15px 0; background: #111; font-size: 14px; color: #bbb; }
 
-.social-icons {
-  margin: 20px 0;
-}
-
-.social-icons a {
-  text-decoration: none;
-  color: white;
-  margin-right: 15px;
-  font-size: 20px;
-  transition: 0.3s;
-}
-
-.social-icons a:hover {
-  color: #ff5f9e;
-}
-
-.contact-right {
-  flex: 1;
-  min-width: 300px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-input, textarea {
-  padding: 14px;
-  border: none;
-  background-color: #1c1c1c;
-  color: white;
-  border-radius: 8px;
-  font-size: 15px;
-}
-
-input:focus, textarea:focus {
-  outline: 2px solid #ff5f9e;
-}
-
-.submit-btn {
-  background: #ff5f9e;
-  color: white;
-  border: none;
-  padding: 14px 0;
-  cursor: pointer;
-  border-radius: 8px;
-  font-size: 16px;
-  transition: 0.3s;
-  width: 180px;
-}
-
-.submit-btn:hover {
-  background: #e24c89;
-  transform: scale(1.05);
-}
-
-    footer { text-align: center; padding: 15px 0; background: #1c1c1c; font-size: 14px; color: #bbb; }
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      nav { flex-direction: column; gap: 10px; padding: 15px; }
+      nav ul { flex-wrap: wrap; justify-content: center; }
+      .header-text h1 { font-size: 36px; }
+      #about { flex-direction: column; text-align: center; }
+      .contact-section { flex-direction: column; }
+    }
   </style>
 </head>
 <body>
 
   <!-- NAVBAR -->
   <nav>
-    <h2 style="color:#ff5f9e;">Romaisa</h2>
+    <h2>Romaisa</h2>
     <ul>
       <li><a href="#header">Home</a></li>
       <li><a href="#about">About</a></li>
@@ -207,10 +175,10 @@ input:focus, textarea:focus {
 
   <!-- HEADER -->
   <div id="header">
+    <img src="header.jpg" alt="Header Background"/>
     <div class="header-text">
-     <p>Full Stack Developer & Video Editor</p>
+      <p>Full Stack Developer & Video Editor</p>
       <h1>Hi, I'm <span>Romaisa</span><br>From Karachi, Pakistan</h1>
-        <img src="header.jpg" alt="Image"/>
     </div>
   </div>
 
@@ -282,7 +250,7 @@ input:focus, textarea:focus {
       <a href="https://www.linkedin.com/in/romaisa-iqbal-604ba72b8"><i class="fab fa-linkedin-in"></i></a>
     </div>
 
-    <a href="resume.pdf.pdf" download class="btn">Download CV</a>
+    <a href="resume.pdf" download class="btn">Download CV</a>
   </div>
 
   <div class="contact-right">
@@ -306,7 +274,6 @@ input:focus, textarea:focus {
 
 </body>
 </html>
-
 
 
 
